@@ -7,6 +7,6 @@
 # ライセンス
 煮るなり焼くなり好きにしてください.  
 
-このソフトウェアはAltseed(http://altseed.github.io/)を利用しています.  
-画像素材はいらすとや(http://www.irasutoya.com/)からお借りしています.  
+このソフトウェアは[Altseed](http://altseed.github.io/)を利用しています.  
+画像素材は[いらすとや](http://www.irasutoya.com/)さんからお借りしています.  
 
