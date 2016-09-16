@@ -27,6 +27,7 @@ namespace _2016ShootingBase.Scene
 
         protected override void OnUpdated()
         {
+            playerpos = player.Position;
             if (!enemy.IsAlive)
                 asd.Engine.ChangeScene(new Scene.Clear());
             if (!player.IsAlive)
@@ -78,6 +79,7 @@ namespace _2016ShootingBase.Scene
         }
         private Charactor.Player player;
         private Charactor.Enemy enemy;
+        public static asd.Vector2DF playerpos ;
         private asd.Layer2D gameLayer = new asd.Layer2D();
     }
 }

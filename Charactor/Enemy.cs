@@ -10,7 +10,7 @@ namespace _2016ShootingBase.Charactor
     {
         public Enemy(asd.Layer2D layer)
         {
-            Texture = asd.Engine.Graphics.CreateTexture2D("tree_character_genki.png");
+            Texture = asd.Engine.Graphics.CreateTexture2D("stand2_back05_man.png");
             Scale = new asd.Vector2DF(Size.X / Texture.Size.X, Size.Y / Texture.Size.Y);
             CenterPosition = Texture.Size.To2DF() / 2;
             Position = new asd.Vector2DF(targetPosition.X, -Size.Y);
@@ -22,13 +22,15 @@ namespace _2016ShootingBase.Charactor
         {
             var position = Position;
             position.Y = position.Y * 0.99f + targetPosition.Y * 0.01f;
+            position.X += speed * reverser; 
             Position = position;
+            if (count % 100 == 0) reverser *= -1;
 
-            if (count%5 == 0)
+            if (count%80 == 0)
             {
                 for (int i=0; i<12; i++)
                 {
-                    var angle = 2 * Math.PI * (i / 12.0f);
+                    /*var angle = 2 * Math.PI * (i / 12.0f);
                     var bulletPos = Position + 36.0f * new asd.Vector2DF((float)Math.Cos(angle), (float)Math.Sin(angle));
 
                     angle *= 360.0f / (2 * Math.PI); // rad to degree
@@ -43,8 +45,9 @@ namespace _2016ShootingBase.Charactor
                         angle -= 90;
                         bulletPos.X -= 64.0f;
                     }
-
-                    gameLayer.AddObject(new Charactor.Bullet(bulletPos, (float)angle));
+                    */
+                    var bulletPos = Position;
+                    gameLayer.AddObject(new Charactor.Bullet(bulletPos/*, (float)angle*/));
                 }
             }
             
@@ -60,16 +63,19 @@ namespace _2016ShootingBase.Charactor
         {
             hp--;
             if (hp < 4)
-                Texture = asd.Engine.Graphics.CreateTexture2D("tree_character_yowaru.png");
+                Texture = asd.Engine.Graphics.CreateTexture2D("stand2_back05_man.png");
             if (hp < 0)
                 Dispose();
         }
 
         private asd.Vector2DF Size { get; } = new asd.Vector2DF(128.0f, 128.0f);
-        private readonly asd.Vector2DF targetPosition = new asd.Vector2DF(320, 120);
+        private readonly asd.Vector2DF targetPosition = new asd.Vector2DF(80, 60);
         private asd.Layer2D gameLayer;
 
         private int count = 0;
         private int hp = 10;
+        private int reverser = -1;
+        private float speed = 5.0f;
+        
     }
 }
