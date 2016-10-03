@@ -22,9 +22,11 @@ namespace _2016ShootingBase.Charactor
         {
             var position = Position;
             position.Y = position.Y * 0.99f + targetPosition.Y * 0.01f;
-            position.X += speed * reverser; 
+            position.X = targetPosition.X + 200 * (float)Math.Cos(ang);
+            position.Y = targetPosition.Y + 30 * (float)Math.Sin(2*ang);
             Position = position;
             if (count % 100 == 0) reverser *= -1;
+            if (count % 5 == 0)  ang += 0.1f;
 
             if (count%80 == 0)
             {
@@ -69,12 +71,13 @@ namespace _2016ShootingBase.Charactor
         }
 
         private asd.Vector2DF Size { get; } = new asd.Vector2DF(128.0f, 128.0f);
-        private readonly asd.Vector2DF targetPosition = new asd.Vector2DF(80, 60);
+        private readonly asd.Vector2DF targetPosition = new asd.Vector2DF(300, 60);
         private asd.Layer2D gameLayer;
 
         private int count = 0;
         private int hp = 10;
         private int reverser = -1;
+        private float ang = 0.0f;
         private float speed = 5.0f;
         
     }
