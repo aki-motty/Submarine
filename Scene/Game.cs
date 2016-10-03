@@ -12,7 +12,7 @@ namespace _2016ShootingBase.Scene
         {
             var backgroundLayer = new asd.Layer2D();
             var background = new asd.TextureObject2D();
-            background.Texture = asd.Engine.Graphics.CreateTexture2D("game.png");
+            background.Texture = asd.Engine.Graphics.CreateTexture2D("C:\\Users\\AYoshimasa\\gitgit\\2016STGBase\\images\\ocean.png");
             backgroundLayer.AddObject(background);
             AddLayer(backgroundLayer);
 
