@@ -10,7 +10,7 @@ namespace _2016ShootingBase.Charactor
     {
         public Enemy(asd.Layer2D layer)
         {
-            Texture = asd.Engine.Graphics.CreateTexture2D("stand2_back05_man.png");
+            Texture = asd.Engine.Graphics.CreateTexture2D("C:\\Users\\AYoshimasa\\gitgit\\2016STGBase\\images\\sensuikan2.png");
             Scale = new asd.Vector2DF(Size.X / Texture.Size.X, Size.Y / Texture.Size.Y);
             CenterPosition = Texture.Size.To2DF() / 2;
             Position = new asd.Vector2DF(targetPosition.X, -Size.Y);
@@ -27,10 +27,10 @@ namespace _2016ShootingBase.Charactor
             Position = position;
             if (count % 1 == 0)  ang += 0.02f;
 
-            if (count%80 == 0)
+            if (count%100 == 0)
             {
                 var bulletPos = Position;
-                gameLayer.AddObject(new Charactor.Bullet(bulletPos/*, (float)angle*/));
+                gameLayer.AddObject(new Charactor.Bullet(bulletPos));
             }
             
             count = (count + 1) % 1200;
@@ -46,8 +46,6 @@ namespace _2016ShootingBase.Charactor
             hp--;
             var explosionpos = Position;
             gameLayer.AddObject(new Charactor.Explosion(explosionpos));
-            if (hp < 4)
-                Texture = asd.Engine.Graphics.CreateTexture2D("stand2_back05_man.png");
             if (hp < 0)
                 Dispose();
         }

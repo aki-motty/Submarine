@@ -10,7 +10,7 @@ namespace _2016ShootingBase.Charactor
     {
         public Player(asd.Layer2D layer)
         {
-            Texture = asd.Engine.Graphics.CreateTexture2D("stand2_back05_man.png");
+            Texture = asd.Engine.Graphics.CreateTexture2D("C:\\Users\\AYoshimasa\\gitgit\\2016STGBase\\images\\sensuikan.png");
             Scale = new asd.Vector2DF(Size.X / Texture.Size.X, Size.Y / Texture.Size.Y);
             CenterPosition = Texture.Size.To2DF() / 2;
             Position = Resource.Window.Size.To2DF() / 2;
@@ -46,7 +46,7 @@ namespace _2016ShootingBase.Charactor
                 Dispose();
         }
 
-        private asd.Vector2DF Size { get; } = new asd.Vector2DF(64.0f, 128.0f);
+        private asd.Vector2DF Size { get; } = new asd.Vector2DF(64.0f, 64.0f);
         private const float speed = 6;
         private int hp = 3;
 
