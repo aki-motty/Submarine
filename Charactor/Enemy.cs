@@ -29,27 +29,8 @@ namespace _2016ShootingBase.Charactor
 
             if (count%80 == 0)
             {
-                for (int i=0; i<12; i++)
-                {
-                    /*var angle = 2 * Math.PI * (i / 12.0f);
-                    var bulletPos = Position + 36.0f * new asd.Vector2DF((float)Math.Cos(angle), (float)Math.Sin(angle));
-
-                    angle *= 360.0f / (2 * Math.PI); // rad to degree
-
-                    if ((count / 30) % 2 == 0)
-                    {
-                        angle += 90;
-                        bulletPos.X += 64.0f;
-                    }
-                    else
-                    {
-                        angle -= 90;
-                        bulletPos.X -= 64.0f;
-                    }
-                    */
-                    var bulletPos = Position;
-                    gameLayer.AddObject(new Charactor.Bullet(bulletPos/*, (float)angle*/));
-                }
+                var bulletPos = Position;
+                gameLayer.AddObject(new Charactor.Bullet(bulletPos/*, (float)angle*/));
             }
             
             count = (count + 1) % 1200;
