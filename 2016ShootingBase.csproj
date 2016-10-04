@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Charactor\Bullet.cs" />
     <Compile Include="Charactor\Enemy.cs" />
+    <Compile Include="Charactor\Explosion.cs" />
     <Compile Include="Charactor\Player.cs" />
     <Compile Include="Charactor\Shot.cs" />
     <Compile Include="Program.cs" />

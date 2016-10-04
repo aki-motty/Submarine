@@ -63,6 +63,8 @@ namespace _2016ShootingBase.Charactor
         public void damage()
         {
             hp--;
+            var explosionpos = Position;
+            gameLayer.AddObject(new Charactor.Explosion(explosionpos));
             if (hp < 4)
                 Texture = asd.Engine.Graphics.CreateTexture2D("stand2_back05_man.png");
             if (hp < 0)
