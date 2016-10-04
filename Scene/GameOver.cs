@@ -13,7 +13,7 @@ namespace _2016ShootingBase.Scene
             var layer = new asd.Layer2D();
 
             var background = new asd.TextureObject2D();
-            background.Texture = asd.Engine.Graphics.CreateTexture2D("gameover.png");
+            background.Texture = asd.Engine.Graphics.CreateTexture2D("C:\\Users\\AYoshimasa\\gitgit\\2016STGBase\\images\\Gameover.png");
             layer.AddObject(background);
 
             AddLayer(layer);
