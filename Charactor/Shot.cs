@@ -19,11 +19,14 @@ namespace _2016ShootingBase.Charactor
         protected override void OnUpdate()
         {
             Position += new asd.Vector2DF(0.0f, -speed);
+            acceleration += 0.005f;
+            speed += acceleration;
             if (Position.Y < 0)
                 Dispose();
         }
 
         private asd.Vector2DF Size { get; } = new asd.Vector2DF(16.0f, 32.0f);
-        private const float speed = 10;
+        private float speed = 0;
+        private float acceleration = 0;
     }
 }
