@@ -25,8 +25,7 @@ namespace _2016ShootingBase.Charactor
             position.X = targetPosition.X + 200 * (float)Math.Cos(ang);
             position.Y = targetPosition.Y + 30 * (float)Math.Sin(2*ang);
             Position = position;
-            if (count % 100 == 0) reverser *= -1;
-            if (count % 5 == 0)  ang += 0.1f;
+            if (count % 1 == 0)  ang += 0.02f;
 
             if (count%80 == 0)
             {
@@ -76,9 +75,7 @@ namespace _2016ShootingBase.Charactor
 
         private int count = 0;
         private int hp = 10;
-        private int reverser = -1;
         private float ang = 0.0f;
-        private float speed = 5.0f;
         
     }
 }
