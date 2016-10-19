@@ -44,6 +44,7 @@ namespace _2016ShootingBase.Charactor
         public void damage()
         {
             hp--;
+            asd.Engine.Sound.Play(explosion);
             var explosionpos = Position;
             gameLayer.AddObject(new Charactor.Explosion(explosionpos));
             if (hp < 0)
@@ -53,6 +54,7 @@ namespace _2016ShootingBase.Charactor
         private asd.Vector2DF Size { get; } = new asd.Vector2DF(128.0f, 128.0f);
         private readonly asd.Vector2DF targetPosition = new asd.Vector2DF(300, 60);
         private asd.Layer2D gameLayer;
+        private asd.SoundSource explosion = asd.Engine.Sound.CreateSoundSource("C:\\Users\\AYoshimasa\\gitgit\\2016STGBase\\sounds\\se_maoudamashii_explosion04.wav",true);
 
         private int count = 0;
         private int hp = 10;

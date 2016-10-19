@@ -23,6 +23,9 @@ namespace _2016ShootingBase.Scene
             gameLayer.AddObject(enemy);
 
             AddLayer(gameLayer);
+
+            bgm.IsLoopingMode = true;
+            id_bgm = asd.Engine.Sound.Play(bgm);
         }
 
         protected override void OnUpdated()
@@ -81,5 +84,7 @@ namespace _2016ShootingBase.Scene
         private Charactor.Enemy enemy;
         public static asd.Vector2DF playerpos ;
         private asd.Layer2D gameLayer = new asd.Layer2D();
+        public static int id_bgm = 0;
+        private asd.SoundSource bgm = asd.Engine.Sound.CreateSoundSource("C:\\Users\\AYoshimasa\\gitgit\\2016STGBase\\sounds\\SoulfulPrincess.wav", false);
     }
 }

@@ -32,7 +32,10 @@ namespace _2016ShootingBase.Charactor
             this.Position = position;
 
             if (asd.Engine.Keyboard.GetKeyState(asd.Keys.Z) == asd.KeyState.Push)
+            {
                 gameLayer.AddObject(new Charactor.Shot(Position));
+                asd.Engine.Sound.Play(shotSE);
+            }
         }
 
         public bool IsHit(Bullet bullet)
@@ -49,7 +52,7 @@ namespace _2016ShootingBase.Charactor
         private asd.Vector2DF Size { get; } = new asd.Vector2DF(64.0f, 64.0f);
         private const float speed = 6;
         private int hp = 3;
-
+        private asd.SoundSource shotSE = asd.Engine.Sound.CreateSoundSource("C:\\Users\\AYoshimasa\\gitgit\\2016STGBase\\sounds\\se_maoudamashii_battle18.wav", true);
         private asd.Layer2D gameLayer;
     }
 }

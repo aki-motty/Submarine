@@ -28,5 +28,6 @@ namespace _2016ShootingBase.Charactor
         private asd.Vector2DF Size { get; } = new asd.Vector2DF(8.0f, 48.0f);
         private float speed = 0;
         private float acceleration = 0;
+         
     }
 }
