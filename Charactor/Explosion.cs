@@ -10,7 +10,7 @@ namespace _2016ShootingBase.Charactor
     {
         public Explosion(asd.Vector2DF pos)
         {
-            Texture = asd.Engine.Graphics.CreateTexture2D("C:\\Users\\AYoshimasa\\gitgit\\2016STGBase\\images\\explosion.png");
+            Texture = asd.Engine.Graphics.CreateTexture2D("images\\explosion.png");
             Scale = new asd.Vector2DF(Size.X / Texture.Size.X, Size.Y / Texture.Size.Y);
             CenterPosition = Texture.Size.To2DF() / 2;
             Position = pos;

@@ -17,7 +17,7 @@ namespace _2016ShootingBase
                 Resource.Window.Size.X, Resource.Window.Size.Y,
                 new asd.EngineOption());
 
-            asd.Engine.File.AddRootPackageWithPassword("Resource.pack", "amcr");
+            asd.Engine.File.AddRootPackageWithPassword("Resources.pack", "5232125");
             asd.Engine.ChangeScene(new Scene.Title());
             while (asd.Engine.DoEvents())
             {

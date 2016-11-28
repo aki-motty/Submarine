@@ -8,14 +8,16 @@ namespace _2016ShootingBase.Charactor
 {
     sealed class Enemy : asd.TextureObject2D
     {
-        public Enemy(asd.Layer2D layer)
+        public Enemy(asd.Layer2D layer,asd.Layer2D backlayer)
         {
-            Texture = asd.Engine.Graphics.CreateTexture2D("C:\\Users\\AYoshimasa\\gitgit\\2016STGBase\\images\\sensuikan2.png");
+            Texture = asd.Engine.Graphics.CreateTexture2D("images\\sensuikan2.png");
             Scale = new asd.Vector2DF(Size.X / Texture.Size.X, Size.Y / Texture.Size.Y);
             CenterPosition = Texture.Size.To2DF() / 2;
             Position = new asd.Vector2DF(targetPosition.X, -Size.Y);
 
             gameLayer = layer;
+            backGroundLayer = backlayer;
+            
         }
 
         protected override void OnUpdate()
@@ -25,12 +27,28 @@ namespace _2016ShootingBase.Charactor
             position.X = targetPosition.X + 200 * (float)Math.Cos(ang);
             position.Y = targetPosition.Y + 30 * (float)Math.Sin(2*ang);
             Position = position;
-            if (count % 1 == 0)  ang += 0.02f;
-
-            if (count%100 == 0)
+            if (count % 1 == 0)  ang += 0.02f * (11 - hp);
+            if (count % 100 == 0)
             {
                 var bulletPos = Position;
-                gameLayer.AddObject(new Charactor.Bullet(bulletPos));
+                gameLayer.AddObject(new Charactor.Bullet(bulletPos, 0));
+                if (hp <= 6)
+                {
+                    gameLayer.AddObject(new Charactor.Bullet(bulletPos, 20));
+                    gameLayer.AddObject(new Charactor.Bullet(bulletPos, -20));
+                }
+                if (hp <= 3)
+                {
+                    gameLayer.AddObject(new Charactor.Bullet(bulletPos, 40));
+                    gameLayer.AddObject(new Charactor.Bullet(bulletPos, -40));
+                }
+            }
+            if (count%250 == 0)
+            {
+                
+                var radarPos = new asd.Vector2DF(random.Next(100,551),random.Next(200,381));
+                backGroundLayer.AddObject(new Charactor.Radar(radarPos));
+                asd.Engine.Sound.Play(radarSE);
             }
             
             count = (count + 1) % 1200;
@@ -50,12 +68,19 @@ namespace _2016ShootingBase.Charactor
             if (hp < 0)
                 Dispose();
         }
+        public void ShotHoming()
+        {
+            var bulletPos = Position;
+            gameLayer.AddObject(new Charactor.HomingBullet(bulletPos));
+        }
 
         private asd.Vector2DF Size { get; } = new asd.Vector2DF(128.0f, 128.0f);
         private readonly asd.Vector2DF targetPosition = new asd.Vector2DF(300, 60);
         private asd.Layer2D gameLayer;
-        private asd.SoundSource explosion = asd.Engine.Sound.CreateSoundSource("C:\\Users\\AYoshimasa\\gitgit\\2016STGBase\\sounds\\se_maoudamashii_explosion04.wav",true);
-
+        private asd.Layer2D backGroundLayer;
+        private asd.SoundSource explosion = asd.Engine.Sound.CreateSoundSource("sounds\\se_maoudamashii_explosion04.wav", true);
+        private asd.SoundSource radarSE = asd.Engine.Sound.CreateSoundSource("sounds\\meka_mi_radar01.wav", true);
+        private Random random = new System.Random();
         private int count = 0;
         private int hp = 10;
         private float ang = 0.0f;
